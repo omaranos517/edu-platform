@@ -14,31 +14,35 @@
 ## 📦 التقنيات المستخدمة
 
 ### Backend
+
 - Laravel 12
 - PHP 8.x
 - MySQL
 
 ### Frontend
+
 الان
+
 - Blade Templates ( stracks, layouts, views, components )
 - Vite
-قريباً
+  قريباً
 - Vue.js
 - Inertia.js
 
 ## ⚙️ متطلبات التثبيت
 
-- PHP ≥ 8.1
-- Composer
-- Node.js + npm
 - Git
 - Docker
 - Docker Compose
 
 ## 🔁 التطويرات المستقبلية
+
 ### المميزات التقنية
+
 - استخدام اطار عمل للواجهة (Vue.js)
-### تجربة المستخدم 
+
+### تجربة المستخدم
+
 - عمل نظام ادارة للمنصة يكون عن طريق هيكل الإدارة التالي :
     - مسؤول عن المنصة ومعلمين وكل معلم له مواد يستطيع الوصول لها والتحكم بمحتواها
 - تحويل الموقع ليكون SPA عن طريق استخدام اطار عمل للواجهة
@@ -46,16 +50,31 @@
 ## 🛠 التثبيت
 
 ```bash
-git clone https://github.com/omaranos517/myPlatform.git
+git clone https://github.com/omaranos517/edu-platform.git
 cd edu-platform
 cp .env.example .env
-docker compose up -d
+docker run --rm \
+-v $(pwd):/app \
+-w /app \
 composer install
-php artisan key:generate
-npm install
-php artisan migrate
-php artisan db:seed
-composer run dev
+./vendor/bin/sail up -d
+./vendor/bin/sail composer install
+./vendor/bin/sail artisan key:generate
+./vendor/bin/sail npm install
+./vendor/bin/sail artisan migrate --seed
+```
+
+## بدأ المشروع
+
+```bash
+# 1. شغل الحاويات في الخلفية
+./vendor/bin/sail up -d
+```
+
+إذا كنت تريد تشغيل Vite فقط بدون الـ queue والخادم الرئيسي، استخدم:
+
+```bash
+./vendor/bin/sail npm run dev
 ```
 
 ## 🔐 الترخيص
