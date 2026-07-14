@@ -31,9 +31,6 @@
 
 ## ⚙️ متطلبات التثبيت
 
-- PHP ≥ 8.1
-- Composer
-- Node.js + npm
 - Git
 - Docker
 - Docker Compose
@@ -52,12 +49,14 @@
 
 ## 🛠 التثبيت
 
-إذا كنت تستخدم Laravel Sail، فهذه هي الطريقة الصحيحة:
-
 ```bash
-git clone https://github.com/omaranos517/myPlatform.git
+git clone https://github.com/omaranos517/edu-platform.git
 cd edu-platform
 cp .env.example .env
+docker run --rm \
+-v $(pwd):/app \
+-w /app \
+composer install
 ./vendor/bin/sail up -d
 ./vendor/bin/sail composer install
 ./vendor/bin/sail artisan key:generate
@@ -70,9 +69,6 @@ cp .env.example .env
 ```bash
 # 1. شغل الحاويات في الخلفية
 ./vendor/bin/sail up -d
-
-# 2. شغل خادم التطوير داخل الحاوية
-./vendor/bin/sail composer run dev
 ```
 
 إذا كنت تريد تشغيل Vite فقط بدون الـ queue والخادم الرئيسي، استخدم:
