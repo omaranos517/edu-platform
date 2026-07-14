@@ -55,7 +55,7 @@ php artisan key:generate
 npm install
 php artisan migrate
 php artisan db:seed
-npm run dev
+composer run dev
 ```
 
 ## 🔐 الترخيص
