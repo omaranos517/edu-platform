@@ -13,11 +13,18 @@
 
 ## 📦 التقنيات المستخدمة
 
+### Backend
 - Laravel 12
 - PHP 8.x
 - MySQL
+
+### Frontend
+الان
 - Blade Templates ( stracks, layouts, views, components )
 - Vite
+قريباً
+- Vue.js
+- Inertia.js
 
 ## ⚙️ متطلبات التثبيت
 
@@ -25,7 +32,8 @@
 - Composer
 - Node.js + npm
 - Git
-- Local Server (Laragon / XAMPP / Apache + MySQL)
+- Docker
+- Docker Compose
 
 ## 🔁 التطويرات المستقبلية
 ### المميزات التقنية
@@ -39,14 +47,15 @@
 
 ```bash
 git clone https://github.com/omaranos517/myPlatform.git
-cd myPlatform
-composer install
+cd edu-platform
 cp .env.example .env
+docker compose up -d
+composer install
 php artisan key:generate
 npm install
 php artisan migrate
 php artisan db:seed
-npm run dev
+composer run dev
 ```
 
 ## 🔐 الترخيص
